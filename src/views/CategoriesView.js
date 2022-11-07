@@ -2,13 +2,14 @@ import React from 'react'
 import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 
-const ContactsView = () => {
+
+const CategoriesView = () => {
   return (
     <>
-      <MainMenuSection />
-      <FooterSection />
+        <MainMenuSection />
+        <FooterSection />
     </>
   )
 }
 
-export default ContactsView
+export default CategoriesView

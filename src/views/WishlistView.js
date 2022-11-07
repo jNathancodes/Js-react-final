@@ -2,7 +2,8 @@ import React from 'react'
 import MainMenuSection from '../sections/MainMenuSection'
 import FooterSection from '../sections/FooterSection'
 
-const ContactsView = () => {
+
+const WishlistView = () => {
   return (
     <>
       <MainMenuSection />
@@ -11,4 +12,4 @@ const ContactsView = () => {
   )
 }
 
-export default ContactsView
+export default WishlistView

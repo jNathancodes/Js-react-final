@@ -25,6 +25,8 @@
             height: 210px;
             background-color: $linear-gradient-light;
             position: relative;
+            width: 100%;
+            object-fit: cover;
 
             .card-menu {
                 position: absolute;

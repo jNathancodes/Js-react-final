@@ -33,7 +33,7 @@ const HomeView = () => {
         <ProductGridSection title="Featured Products" products={products} />
         <Banners />
         <FlashSaleSection />
-        <SmallGridSection />
+
         <FooterSection />
       </>
     )

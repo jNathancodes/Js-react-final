@@ -14,6 +14,7 @@ import ShoppingcartView from './views/ShoppingcartView';
 import NotFoundView from './views/NotFoundView';
 import FooterSection from './sections/FooterSection';
 import MainMenuSection from './sections/MainMenuSection';
+import SaleUp from './sections/SaleUp';
 
 
 

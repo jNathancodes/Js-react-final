@@ -1,0 +1,24 @@
+.flashsale {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 0px;
+    margin-top: -80px;
+    height: 650px;
+
+
+    .flash-left {
+        padding-left: 47%;
+        height: 300px;
+
+    }
+    .img5 {
+        height: 600px;
+        width: 640px;
+    }
+    .btn-white {
+        position: relative;
+        left: 70%;
+        bottom: 100%;
+    }
+
+}

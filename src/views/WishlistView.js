@@ -4,6 +4,7 @@ import FooterSection from '../sections/FooterSection'
 
 
 const WishlistView = () => {
+  window.top.document.title = 'Wish-List Fixxo.'
   return (
     <>
       <MainMenuSection />

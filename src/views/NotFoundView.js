@@ -4,6 +4,7 @@ import FooterSection from '../sections/FooterSection'
 
 
 const NotFoundView = () => {
+  window.top.document.title = '404 Fixxo.'
   return (
     <>
         <MainMenuSection />

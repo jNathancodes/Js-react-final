@@ -4,6 +4,7 @@ import FooterSection from '../sections/FooterSection'
 
 
 const CompareView = () => {
+  window.top.document.title = 'Compare Fixxo.'
   return (
     <>
             <MainMenuSection />

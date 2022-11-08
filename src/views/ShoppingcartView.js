@@ -4,6 +4,7 @@ import FooterSection from '../sections/FooterSection'
 
 
 const ShoppingcartView = () => {
+  window.top.document.title = 'Cart Fixxo.'
   return (
     <>
       <MainMenuSection />

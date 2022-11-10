@@ -5,6 +5,25 @@ const ContactFormSection = () => {
     const [formErrors, setFormErrors] = useState({})
     const [submitted, setSubmitted] = useState(false)
 
+    const sendToApi = (json) => {
+        console.log(json)
+        fetch ('https://win22-webapi.azurewebsites.net/api/contactform',
+                {method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                    body: json
+                }
+            ).then(res => {
+            if(res.status === 200)
+                setSubmitted(true)
+            else
+                setSubmitted(false)
+        })
+        
+
+          
+    }
     const validate = (values) => {
         const errors = {}
         const regex_email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -22,10 +41,7 @@ const ContactFormSection = () => {
         else if(values.comment.length < 5)
             errors.comment = "You must express yourself a bit more"
 
-        if(Object.keys(errors).length === 0)
-            setSubmitted(true)
-        else
-            setSubmitted(false)
+
 
 
         return errors;
@@ -38,9 +54,20 @@ const ContactFormSection = () => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        setFormErrors(validate(contactForm))
+        e.preventDefault();      
+        let errorObjoct = validate(contactForm);      
+        if (!(Object.keys(errorObjoct).length === 0)) {       
+            setFormErrors(errorObjoct);     
+        } else {       
+            let name = contactForm.name;       
+            let email = contactForm.email;       
+            let comments = contactForm.comment;       
+            const json = JSON.stringify({ name, email, comments });       
+            console.log(json);       
+            sendToApi(json);     
+        }
     }
+
 
   return (
     <section className="contact-form">
@@ -54,7 +81,6 @@ const ContactFormSection = () => {
                 (
                     <>
                         <h2>Come in Contact with Us</h2>
-                        <pre>{ JSON.stringify(formErrors)}</pre>
                         <form onSubmit={handleSubmit} noValidate>
                             <div>
                                 <input id="name" type="text" placeholder="Your Name" value={contactForm.name} onChange={handleChange} />

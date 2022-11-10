@@ -11,7 +11,7 @@ const MainMenuSection = () => {
 //}
 
   return (
-    <nav className="mainmenu container">
+    <nav className="mainmenu">
             <NavLink className="logo" to="/" end>Fixxo.</NavLink>
 
         <div className="menu-links">

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const ProductCard = ({product}) => {
 
     const addToWishList = (e) => {
-        console.log(`${e.target} added to wish list`)
+        console.log(`${e.target} "added to wish list"`)
     }
 
     const addToCompare = (e) => {

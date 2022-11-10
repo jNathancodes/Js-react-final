@@ -47,7 +47,7 @@ const ContactFormSection = () => {
         <div className="container">
             {
                 submitted ?
-                (<div className="d-flex justify-content-center align-items-center">
+                (<div className="rely d-flex justify-content-center align-items-center">
                     <div>Thank you for your comment!</div>
                 </div>)
                 :

@@ -4,25 +4,23 @@ const ContactFormSection = () => {
     const [contactForm, setContactForm] = useState({name: '', email: '', comment: ''})
     const [formErrors, setFormErrors] = useState({})
     const [submitted, setSubmitted] = useState(false)
-
+    const [errorText, setErrorText] = useState("")
     const sendToApi = (json) => {
-        console.log(json)
-        fetch ('https://win22-webapi.azurewebsites.net/api/contactform',
-                {method: 'POST',
-                headers: {
+        fetch ('https://win22-webapi.azurewebsites.net/api/contactform',{
+            method: 'POST',
+            headers: {
                     'Content-Type': 'application/json'
                 },
                     body: json
-                }
-            ).then(res => {
-            if(res.status === 200)
-                setSubmitted(true)
-            else
-                setSubmitted(false)
+                })
+                .then((res) => {
+            if(res.status === 200) return res.text()
+            else return "Something went wrong sending data to the api"
         })
-        
-
-          
+        .then((text) => {
+            setErrorText(text)
+            setSubmitted(true)
+        })  
     }
     const validate = (values) => {
         const errors = {}
@@ -62,8 +60,7 @@ const ContactFormSection = () => {
             let name = contactForm.name;       
             let email = contactForm.email;       
             let comments = contactForm.comment;       
-            const json = JSON.stringify({ name, email, comments });       
-            console.log(json);       
+            const json = JSON.stringify({ name, email, comments });              
             sendToApi(json);     
         }
     }
@@ -75,7 +72,7 @@ const ContactFormSection = () => {
             {
                 submitted ?
                 (<div className="rely d-flex justify-content-center align-items-center">
-                    <div>Thank you for your comment!</div>
+                    <div>{errorText}</div>
                 </div>)
                 :
                 (

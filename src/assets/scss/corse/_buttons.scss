@@ -7,12 +7,21 @@
     padding: 20px 50px;
     transition: all 0.2s ease-in-out;
     border: none;
-    
+    position: absolute;
+    height: 20px;
+    width: 20px;
 
-    .corner-w-left{
+   
+    .corner-w-left,
+    .corner-w-right {
         position: absolute;
         height: 20px;
         width: 20px;
+
+    } 
+
+
+    .corner-w-left {
         border-left: 1px solid $color-dark;
         border-top: 1px solid $color-dark;
         top: 10px;
@@ -20,23 +29,24 @@
 
     }
     .corner-w-right {
-        position: absolute;
-        height: 20px;
-        width: 20px;
         border-right: 1px solid $color-dark;
         border-bottom: 1px solid $color-dark;
         bottom: 10px;
         right: 10px;
 
-
     }
-
     &:hover {
         color: $color-white; 
         background-color: $color-dark;
         text-decoration: none;
+        border-color: $color-white;
     }
+
 }
+
+
+
+
 
 .btn-theme {
     position: relative;
@@ -72,3 +82,9 @@
         text-decoration: none;
     }
 }
+
+
+
+
+
+
